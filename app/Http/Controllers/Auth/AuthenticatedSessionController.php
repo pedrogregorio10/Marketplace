@@ -28,7 +28,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        if($request->user()->rule === 'admin'){
+            return redirect()->intended(route('admin.dashboard'));
+        }else if($request->user()->rule === 'vendor'){
+            return redirect()->intended(route('vendor.dashboard'));
+        }else if($request->user()->rule === 'user'){
+            return redirect()->intended(route('dashboard'));
+        }else{
+            return redirect()->intended(route('login'))->with('error', 'Seus dados estão incorretos');
+        }
+            //return redirect()->intended(route('dashboard'));
     }
 
     /**

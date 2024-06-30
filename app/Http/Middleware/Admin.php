@@ -15,8 +15,8 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role!='admin'){
-            return redirect()->intended(route('inicio'));
+        if(Auth::user()->rule!='admin'){
+            return redirect()->intended(route('site.index'));
         }
         return $next($request);
     }

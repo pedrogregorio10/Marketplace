@@ -15,8 +15,8 @@ class Client
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role!='user'){
-            return redirect()->intended(route('inicio'));
+        if(Auth::user()->rule!='user'){
+            return redirect()->intended(route('site.index'));
         }
         return $next($request);
     }

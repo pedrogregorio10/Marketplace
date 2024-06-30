@@ -15,8 +15,8 @@ class Vendor
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role!='vendor'){
-            return redirect()->intended(route('inicio'));
+        if(Auth::user()->rule!='vendor'){
+            return redirect()->intended(route('site.index'));
         }
         return $next($request);
     }
