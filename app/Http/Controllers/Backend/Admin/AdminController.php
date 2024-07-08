@@ -25,7 +25,11 @@ class AdminController extends Controller
     {
         return view('admin/dashboard');
     }
-
+    //Profile
+    public function edit()
+    {
+        return view('admin/profile/edit');
+    }
     /**
      * Store a newly created resource in storage.
      */
