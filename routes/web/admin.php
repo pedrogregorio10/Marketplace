@@ -8,6 +8,7 @@ Route::controller(AdminController::class)->group(function (){
 
     Route::get('admin/login', 'login')->name('admin.login')->middleware('guest');
 
-    Route::get('admin/dashboard','index')->name('admin.dashboard')->middleware(['auth','verified','admin']);
+    Route::get('admin/dashboard','create')->name('admin.dashboard')->middleware(['auth','verified','admin']);
+    Route::get('admin/forgot-password','forgot_password')->name('admin.forgot-password')->middleware('guest');
 });
 

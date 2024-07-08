@@ -10,9 +10,9 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function forgot_password()
     {
-        return view('admin/dashboard');
+        return view('admin/auth/forgot-password');
     }
     public function login()
     {
@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/dashboard');
     }
 
     /**

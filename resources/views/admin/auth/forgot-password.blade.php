@@ -37,58 +37,44 @@
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>Login Administrador</h4></div>
+              <div class="card-header"><h4>Recuperar senha</h4></div>
+                @if (session('status'))
+                    <p class="alert-warning">
+                        Foi enviado um link no seu email para recoperção da senha!
+                        {{ session('staus') }}
+                    </p>
+                @endif
 
               <div class="card-body">
-                <form method="post" action="{{ route('login') }}" class="needs-validation">
+                <form method="post" action="{{ route('password.email') }}" class="needs-validation">
                     @csrf
                   <div class="form-group">
 
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" value="{{ old('email') }}" required autofocus placeholder="Seu Email" >
-                    @if ($errors->has('email'))
+                    @if ($errors->get('email'))
                         <code>{{ $errors->first('email') }}</code>
                     @endif
                   </div>
 
                   <div class="form-group">
-                    <div class="d-block">
-
-                      <div class="float-right">
-                        @if (Route::has('admin.forgot-password'))
-                          <a href="{{ route('admin.forgot-password') }}" class="text-small">
-                            Esqueceu sua senha?
-                          </a>
-                        @endif
-
-                      </div>
-                    </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" value="{{ old('password') }}" required placeholder="Palavra Passe">
-                    @if ($errors->has('password'))
-                        <code>{{ $errors->first('password') }}</code>
-                    @endif
-                  </div>
-
-                  <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                      <label class="custom-control-label" for="remember-me">Lembrar-me</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                      Entrar
+                      Confirmar
                     </button>
                   </div>
                 </form>
 
+                <div class="mt-5 text-muted text-center">
+                    <a href="{{ route('admin.login') }}">Voltar para o logn</a>
+                </div>
+
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-                Não tem uma conta? <a href="auth-register.html">Registra-se</a>
+                Criado por <a target="_blank" href="https://pedrogregorio10.github.io/portfolio/">Pedro Gregório</a>
             </div>
             <div class="simple-footer">
-              Todos direitos reservados &copy; <?=date('Y')?> <a target="_blank" href="https://pedrogregorio10.github.io/portfolio/">Pedro Gregório</a>
+              Todos direitos reservados &copy; <?=date('Y')?>
+              <br><a target="_blank" href="https://pedrogregorio10.github.io/portfolio/">INOSOFT</a>
             </div>
           </div>
         </div>
