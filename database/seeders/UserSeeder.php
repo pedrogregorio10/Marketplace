@@ -14,18 +14,18 @@ class UserSeeder extends Seeder
     {
         User::insert([
         [
-            'firstname' => 'Papa',
+            'name' => 'Papa',
             'email' => 'papa@gmail.com',
             'password' =>bcrypt('12345'),
             'rule' => 'admin',
         ],[
-            'firstname' => 'Mama',
+            'name' => 'Mama',
             'email' => 'mama@gmail.com',
             'password' => bcrypt('12345'),
             'rule' => 'vendor',
         ],
         [
-            'firstname' => 'Tilcia',
+            'name' => 'Tilcia',
             'email' => 'tilcia@gmail.com',
             'password' => bcrypt('12345'),
             'rule' => 'user',
