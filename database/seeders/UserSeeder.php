@@ -25,6 +25,13 @@ class UserSeeder extends Seeder
             'email' => 'mama@gmail.com',
             'password' => bcrypt('12345'),
             'rule' => 'vendor',
+        ],
+        [
+            'firstname' => 'Tilcia',
+            'lastname' => 'Leal',
+            'email' => 'tilcia@gmail.com',
+            'password' => bcrypt('12345'),
+            'rule' => 'user',
         ]
     ]);
     }
