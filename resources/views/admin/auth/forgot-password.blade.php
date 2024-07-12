@@ -50,7 +50,7 @@
                     @csrf
                   <div class="form-group">
 
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" value="{{ old('email') }}" required autofocus placeholder="Seu Email" >
+                    <input id="email" type="email" class="form-control" name="email" tabindex="1" value="{{ old('email',$user->email) }}" required autofocus placeholder="Seu Email" >
                     @if ($errors->get('email'))
                         <code>{{ $errors->first('email') }}</code>
                     @endif

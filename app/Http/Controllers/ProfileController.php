@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Route;
 
 class ProfileController extends Controller
 {
@@ -34,7 +35,13 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        if (Route::has('admin.profile.edit'))
+        {
+            return redirect()->intended(route('admin.profile.edit'))->with('status','profile-updated');
+        }else {
+            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        }
+
     }
 
     /**

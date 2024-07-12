@@ -20,35 +20,39 @@
                 @csrf
             </form>
 
-              <form method="post" class="needs-validation" novalidate="" action="{{ route('profile.update') }}">
+              <form method="post" class="needs-validation" action="{{ route('profile.update') }}">
                 @csrf
                 @method('patch')
+
                 <div class="card-header">
                   <h4>Atualizar perfil</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                       <div class="form-group col-md-6 col-12">
-                        <label>Nome</label>
-                        <input type="text" class="form-control" name="firstname" value="{{ old('firstname')}}" required autofocus autocomplete="firstname">
+
+                        <label for="name">Nome</label>
+
+                        <input type="text" id="name" class="form-control" name="name" value="{{ old('name',$user->name)}}" required autofocus autocomplete="name">
+
                         <div class="invalid-feedback">
-                          Please fill in the first name
+                          @if ($errors->has('name'))
+                            <code>{{ $errors->first('name') }}</code>
+                          @endif
                         </div>
                       </div>
-                      <div class="form-group col-md-6 col-12">
-                        <label>Sobrenome</label>
-                        <input type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus autocomplete="lastname">
-                        <div class="invalid-feedback">
-                          Please fill in the last name
-                        </div>
-                      </div>
+
                     </div>
+
                     <div class="row">
                       <div class="form-group col-md-7 col-12">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email',$user->email) }}" required>
+
                         <div class="invalid-feedback">
-                          Please fill in the email
+                          @if ($errors->has('email'))
+                            <code>{{ $errors->first('email') }}</code>
+                          @endif
                         </div>
                       </div>
 
@@ -57,6 +61,15 @@
                 </div>
                 <div class="card-footer text-right">
                   <button class="btn btn-primary">Salvar alteração</button>
+                  @if (session('status') === 'profile-updated')
+                <p
+                    x-data="{ show: true }"
+                    x-show="show"
+                    x-transition
+                    x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600"
+                >{{ __('Saved.') }}</p>
+            @endif
                 </div>
               </form>
             </div>
