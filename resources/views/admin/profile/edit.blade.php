@@ -42,6 +42,19 @@
                         </div>
                       </div>
 
+                      <div class="form-group col-md-6 col-12">
+
+                        <label for="nickn">Apelido</label>
+
+                        <input type="text" id="nickn" class="form-control" name="nickn" value="{{ old('nickn',$user->nickn)}}" autofocus autocomplete="nickn">
+
+                        <div class="invalid-feedback">
+                          @if ($errors->has('nickn'))
+                            <code>{{ $errors->first('nickn') }}</code>
+                          @endif
+                        </div>
+                      </div>
+
                     </div>
 
                     <div class="row">

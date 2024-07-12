@@ -15,17 +15,20 @@ class UserSeeder extends Seeder
         User::insert([
         [
             'name' => 'Papa',
+            'nickn' => 'Wemba',
             'email' => 'papa@gmail.com',
             'password' =>bcrypt('12345'),
             'rule' => 'admin',
         ],[
             'name' => 'Mama',
+            'nickn' => 'sema',
             'email' => 'mama@gmail.com',
             'password' => bcrypt('12345'),
             'rule' => 'vendor',
         ],
         [
             'name' => 'Tilcia',
+            'nickn' => 'Leal',
             'email' => 'tilcia@gmail.com',
             'password' => bcrypt('12345'),
             'rule' => 'user',
