@@ -33,6 +33,8 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
         /*
+        validacao
+        required, email, uique:users, email,".Auth::user()->id
         $request->user()->save();
         */
 
